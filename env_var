@@ -1,0 +1,30 @@
+
+Envoirement Variable Setup
+
+=========================== JAVA =====================================
+JAVA_HOME = C:\Program Files\Java\jdk1.8.0_144
+JRE_HOME = C:\Program Files\Java\jre1.8.0_144
+CLASSPATH = C:\Program Files\Java\jdk1.8.0_144;C:\Program Files\Java\jre1.8.0_144
+path =  <jdk> <jre> path added
+
+========================== MAVEN ====================================
+M2 = C:\Program Files\apache-maven-3.5.0
+MAVEN_HOME = C:\Program Files\apache-maven-3.5.0
+M2_HOME = C:\Program Files\apache-maven-3.5.0
+path = %M2%\bin; %MAVEN%\bin; %M2_HOME%\bin
+
+========================== Installation -=================================
+# Java 8 and envoirement variables
+# Mavan unzip to Program file location and add envoirement variables
+# git windows interface download, git.exe
+# Tomacat installation
+# Jenkins War File - copy to webapps folder of tomcat
+
+# Check BOIS setting for Virtualization
+# copy VDI image from shared location
+# download putty
+
+
+
+
+
