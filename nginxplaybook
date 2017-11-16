@@ -1,0 +1,44 @@
+- name: Configure webserver with nginx
+hosts: webservers
+sudo: True
+tasks:
+- name: install nginx
+apt: name=nginx update_cache=yes
+- name: copy nginx config file
+copy: src=files/nginx.conf dest=/etc/nginx/sites-available/default
+- name: enable configuration
+file: >
+dest=/etc/nginx/sites-enabled/default
+src=/etc/nginx/sites-available/default
+state=link
+- name: copy index.html
+template: src=templates/index.html.j2 dest=/usr/share/nginx/html/index.html
+mode=0644
+- name: restart nginx
+service: name=nginx state=restarted
+
+# Create files/nginx.conf
+
+server {
+listen 80 default_server;
+listen [::]:80 default_server ipv6only=on;
+root /usr/share/nginx/html;
+index index.html index.htm;
+server_name localhost;
+location / {
+try_files $uri $uri/ =404;
+}
+}
+
+# Create playbooks/templates/index.html.j2
+
+<html>
+<head>
+<title>Welcome to ansible</title>
+</head>
+<body>
+<h1>nginx, configured by Ansible</h1>
+<p>If you can see this, Ansible successfully installed nginx.</p>
+<p>{{ ansible_managed }}</p>
+</body>
+</html>
